@@ -11,8 +11,23 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        jwBackground: "#21202E",
+        jwYellow: "#F2E371",
+        jwPink: "#F259A3",
+        jwBlue: "#69E2FF",
+        jwPurple: "#6242F2",
+        jwGreen: "#61FFAC",
+      },
+      fontFamily: {
+        bebas: ["Bebas Neue", 'serif'],
+        afacad: ["Afacad", 'serif'],
+      },
+      lineHeight: {
+        tightest: "0.7",
       },
     },
   },
-  plugins: [],
+  plugins: [
+
+  ],
 } satisfies Config;
