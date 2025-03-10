@@ -1,25 +1,42 @@
+// about.tsx (Your React component)
 import React from "react";
+import { events } from "../app/timeline"; // Correct the import path as needed
 
-interface AboutProps {
-    events: Event[];
-  }
-  
-  const About: React.FC<AboutProps> = ({ events }) => {
+const About: React.FC = () => {
   return (
     <div>
-      <h1>skills</h1>
-      {/* timeline */}
-      <div className="flex flex-col gap-y-3 w-full my-4">
-            <Circle />
-            {events.map(event, key) => {
-                <Fragment key={key}>
-                    <div className="grid grid-cols-[1fr-auto-1fr] gap-x-2 items-center mx-auto">
-                        {event.direction === "left" ? (
-                            <EventCard heading={event.heading} subHeading={event.subHeading}/>
-                        )}
-                    </div>
-                </Fragment>
-            }}
+      <h1>Skills</h1>
+      <div className="timeline flex flex-col items-center justify-center">
+        <h2>My Timeline</h2>
+        <div className="flex flex-col gap-y-3 my-4">
+          <Circle />
+          {events.map((event, index) => (
+            <div key={index}>
+              <div className="grid grid-cols-[1fr_auto_1fr] gap-x-2 items-center mx-auto">
+                {event.direction === "left" ? (
+                  <EventCard
+                    heading={event.heading}
+                    subHeading={event.subHeading}
+                  />
+                ) : (
+                  <div></div>
+                )}
+
+                <Pillar />
+
+                {event.direction === "right" ? (
+                  <EventCard
+                    heading={event.heading}
+                    subHeading={event.subHeading}
+                  />
+                ) : (
+                  <div></div>
+                )}
+              </div>
+              {index < events.length - 1 && <Circle />}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
