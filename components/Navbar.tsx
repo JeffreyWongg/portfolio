@@ -1,8 +1,8 @@
 const Navbar = () => {
   return (
-    <div className="flex justify-center">
-      <img src="jeffrey-logo.png" alt="" className="h-auto w-12" />
-      <div className="flex  py-5">
+    <div className="py-5">
+      <img src="jeffrey-logo.png" alt="" className="absolute px-5 sm:px-10 h-16 w-auto" />
+      <div className="flex justify-center">
         <div className="border-white border-2 rounded-[50px] p-5">
           <ul className="flex font-afacad font-semibold gap-5 text-xl">
             <li className="text-jwPink">About</li>
