@@ -1,16 +1,31 @@
 import React from "react";
+import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
+
+import { github } from "../assets";
+import { SectionWrapper } from "../hoc";
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+};
 
 const Projects = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-20">
-      <h3 className="font-afacad text-gray-400">MY WORK</h3>
-      <h1 className="font-bebas text-8xl text-jwYellow">My Projects</h1>
-      <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
-        <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
-        <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
-        <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
+    <>
+      <div className="flex flex-col items-center justify-center py-20">
+        <h3 className="font-afacad text-gray-400">MY WORK</h3>
+        <h1 className="font-bebas text-8xl text-jwYellow">My Projects</h1>
+        <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
+          <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
+          <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
+          <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
+        </div>
       </div>
-    </div>
+      <div className="w-full flex">
+        <motion.p variants={fadeIn}></motion.p>
+      </div>
+    </>
   );
 };
 

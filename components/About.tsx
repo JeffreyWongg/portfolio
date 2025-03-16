@@ -53,10 +53,13 @@ const About: React.FC = () => {
     <div className="px-8">
       {/* About Me Section */}
       <ScrollSection>
-        <div id="about" className="flex flex-col justify-center items-center text-center h-screen">
+        <div
+          id="about"
+          className="flex flex-col justify-center items-center text-center h-screen"
+        >
           <h3 className="font-afacad text-gray-400">WHO IS JEFFREY?</h3>
           <h1 className="font-bebas text-8xl text-jwYellow">About Me</h1>
-          <div className="font-afacad text-gray-400 text-xl max-w-2xl space-y-4 h-screen">
+          <div className="font-afacad text-gray-400 text-xl max-w-2xl space-y-4">
             <p>
               Hello! I am Jeffrey Wong, a current grade 12 living in Ontario,
               Canada. I have a passion for software and programming, therefore I
@@ -74,7 +77,7 @@ const About: React.FC = () => {
 
       {/* Skills Section */}
       <ScrollSection delay={0.3}>
-        <div className="flex flex-col justify-center items-center py-10">
+        <div className="flex flex-col justify-center items-center py-10 h-screen">
           <h3 className="font-afacad text-gray-400">MY TECHSTACK</h3>
           <h1 className="font-bebas text-8xl text-jwYellow">Skills</h1>
 
@@ -97,7 +100,10 @@ const About: React.FC = () => {
       </ScrollSection>
 
       {/* Timeline Section */}
-      <div id="experience" className="timeline flex flex-col items-center justify-center mt-12">
+      <div
+        id="experience"
+        className="timeline flex flex-col items-center justify-center mt-12"
+      >
         <motion.h3
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -149,7 +155,7 @@ const ScrollSection = ({
 };
 
 const Circle = () => {
-  return <div className="rounded-full w-4 h-4 bg-jwBlue mx-auto"></div>;
+  return <div className="rounded-full w-4 h-4 bg-jwBlue mx-auto mt-2"></div>;
 };
 
 const Pillar = () => {
@@ -179,6 +185,7 @@ const TimelineEvent: React.FC<{ event: any; index: number }> = ({
             subHeading={event.subHeading}
             description={event.description}
             date={event.date}
+            image={event.image}
           />
         ) : (
           <div></div>
@@ -192,6 +199,7 @@ const TimelineEvent: React.FC<{ event: any; index: number }> = ({
             subHeading={event.subHeading}
             description={event.description}
             date={event.date}
+            image={event.image}
           />
         ) : (
           <div></div>
@@ -207,6 +215,7 @@ interface EventCardProps {
   subHeading: string;
   description: string;
   date: string;
+  image?: string;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
@@ -214,12 +223,21 @@ const EventCard: React.FC<EventCardProps> = ({
   subHeading,
   description,
   date,
+  image,
 }) => {
   return (
-    <div className="flex flex-col gap-y-2 border shadow-md rounded-xl p-4">
+    <div className="relative flex flex-col gap-y-2 border shadow-md rounded-xl p-4 bg-black text-white">
       <div className="font-afacad font-bold text-lg border-b">{heading}</div>
-      <div className="font-afacad font-bold text-sm">{subHeading}</div>
-      <div className="font-afacad text-sm">{description}</div>
+      <div className="flex items-center flex-col md:flex-row">
+        <div className="flex flex-col">
+          <div className="font-afacad font-bold text-sm">{subHeading}</div>
+          <div className="font-afacad text-sm">{description}</div>
+        </div>
+        <img
+          src={image}
+          className="w-32 h-fit"
+        />
+      </div>
       <div className="font-afacad font-bold text-sm">{date}</div>
     </div>
   );
