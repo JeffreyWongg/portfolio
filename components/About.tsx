@@ -81,14 +81,14 @@ const About: React.FC = () => {
           <h3 className="font-afacad text-gray-400">MY TECHSTACK</h3>
           <h1 className="font-bebas text-8xl text-jwYellow">Skills</h1>
 
-          {/* Skills Grid */}
           <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 gap-6 text-5xl mt-6">
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }} // Triggers only when in view
+                transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="flex flex-col items-center text-center"
               >
                 {skill.icon}
@@ -107,15 +107,15 @@ const About: React.FC = () => {
         <motion.h3
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 1, delay: 1 }}
           className="font-afacad text-gray-400"
         >
-          MY EXPERIENCE PATHWAY
+          MY TECH/WORK EXPERIENCE
         </motion.h3>
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.7 }}
+          transition={{ duration: 1, delay: 1 }}
           className="font-bebas text-8xl text-jwYellow"
         >
           EXPERIENCES
@@ -140,14 +140,14 @@ const ScrollSection = ({
   delay?: number;
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1, delay }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 1.3, delay }}
     >
       {children}
     </motion.div>
@@ -176,7 +176,7 @@ const TimelineEvent: React.FC<{ event: any; index: number }> = ({
       ref={ref}
       initial={{ opacity: 0, x: event.direction === "left" ? -50 : 50 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
+      transition={{ duration: 0.7, delay: index * 0.3 }} // Increased duration & delay
     >
       <div className="grid grid-cols-[1fr_auto_1fr] gap-x-2 items-center mx-auto">
         {event.direction === "left" ? (
@@ -233,10 +233,7 @@ const EventCard: React.FC<EventCardProps> = ({
           <div className="font-afacad font-bold text-sm">{subHeading}</div>
           <div className="font-afacad text-sm">{description}</div>
         </div>
-        <img
-          src={image}
-          className="w-32 h-fit"
-        />
+        <img src={image} className="w-32 h-fit bg-white flex justify-center items-center p-1 rounded-full" />
       </div>
       <div className="font-afacad font-bold text-sm">{date}</div>
     </div>

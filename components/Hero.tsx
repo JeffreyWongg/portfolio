@@ -27,11 +27,11 @@ const Hero = () => {
     <div>
       <div
         id="hero"
-        className="flex flex-col items-center md:flex-row justify-between h-screen md:px-4 lg: px-8 py-3"
+        className="flex flex-col items-center md:flex-row justify-between h-screen py-24 md:py-3 md:px-12 lg:px-16 xl:px-40 2xl:px-52"
       >
         <div className="flex">
           <motion.div
-            className="rounded-t-full rounded-b-full w-2 min-h-96 bg-jwBlue"
+            className="rounded-t-full rounded-b-full w-2 min-h-96 bg-jwBlue "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}

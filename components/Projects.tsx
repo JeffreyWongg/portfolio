@@ -2,28 +2,57 @@ import React from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
-import { github } from "../assets";
-import { SectionWrapper } from "../hoc";
+import { Variants } from "framer-motion";
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+const fadeIn = (
+  direction: string,
+  type: string,
+  delay: number,
+  duration: number
+): Variants => {
+  return {
+    hidden: {
+      x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
+      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
+      opacity: 0,
+    },
+    show: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: type,
+        delay: delay,
+        duration: duration,
+        ease: "easeOut",
+      },
+    },
+  };
 };
 
 const Projects = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center py-20">
+      <div id="projects" className="flex flex-col items-center justify-center py-20">
         <h3 className="font-afacad text-gray-400">MY WORK</h3>
         <h1 className="font-bebas text-8xl text-jwYellow">My Projects</h1>
         <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
-          <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
-          <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
-          <ProjectCard src="" title="DementAId" description="fsdfdsfds" />
+          <ProjectCard
+            src="./jeffrey-logo.png"
+            title="DementAId"
+            description="fsdfdsfds"
+          />
+          <ProjectCard
+            src="./jeffrey-logo.png"
+            title="DementAId"
+            description="fsdfdsfds"
+          />
+          <ProjectCard
+            src="./jeffrey-logo.png"
+            title="DementAId"
+            description="fsdfdsfds"
+          />
         </div>
-      </div>
-      <div className="w-full flex">
-        <motion.p variants={fadeIn}></motion.p>
       </div>
     </>
   );
@@ -43,7 +72,7 @@ const ProjectCard = ({ src, title, description }: Props) => {
         alt={title}
         width={1000}
         height={1000}
-        className="w-full object-contain"
+        className="w-36 object-contain"
       />
       <div className="relative p-4">
         <h1 className="text-2xl font-bebas text-jwGreen">{title}</h1>
