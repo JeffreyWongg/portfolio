@@ -57,7 +57,7 @@ const About: React.FC = () => {
           id="about"
           className="flex flex-col justify-center items-center text-center h-screen"
         >
-          <h3 className="font-afacad text-gray-400">WHO IS JEFFREY?</h3>
+          <h3 className="font-afacad text-jwBlue">WHO IS JEFFREY?</h3>
           <h1 className="font-bebas text-8xl text-jwYellow">About Me</h1>
           <div className="font-afacad text-gray-400 text-xl max-w-2xl space-y-4">
             <p>
@@ -78,7 +78,7 @@ const About: React.FC = () => {
       {/* Skills Section */}
       <ScrollSection delay={0.3}>
         <div className="flex flex-col justify-center items-center py-10 h-screen">
-          <h3 className="font-afacad text-gray-400">MY TECHSTACK</h3>
+          <h3 className="font-afacad text-jwBlue">MY TECHSTACK</h3>
           <h1 className="font-bebas text-8xl text-jwYellow">Skills</h1>
 
           <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 gap-6 text-5xl mt-6">
@@ -92,7 +92,7 @@ const About: React.FC = () => {
                 className="flex flex-col items-center text-center"
               >
                 {skill.icon}
-                <span className="text-sm font-afacad">{skill.name}</span>
+                <span className="text-sm font-afacad text-jwBlue">{skill.name}</span>
               </motion.div>
             ))}
           </div>
@@ -108,7 +108,7 @@ const About: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="font-afacad text-gray-400"
+          className="font-afacad text-jwGreen"
         >
           MY TECH/WORK EXPERIENCE
         </motion.h3>
@@ -226,8 +226,8 @@ const EventCard: React.FC<EventCardProps> = ({
   image,
 }) => {
   return (
-    <div className="relative flex flex-col gap-y-2 border shadow-md rounded-xl p-4 bg-black text-white">
-      <div className="font-afacad font-bold text-lg border-b">{heading}</div>
+    <div className="relative flex flex-col gap-y-2 border shadow-md rounded-xl p-4 text-white bg-jwBackground">
+      <div className="font-bebas text-xl border-">{heading}</div>
       <div className="flex items-center flex-col md:flex-row">
         <div className="flex flex-col">
           <div className="font-afacad font-bold text-sm">{subHeading}</div>
