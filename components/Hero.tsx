@@ -3,6 +3,7 @@
 import { FiLinkedin, FiGithub, FiMail } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { ComputersCanvas, EarthCanvas } from "./canvas";
+import Emoji from "react-emoji-render";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -47,7 +48,7 @@ const Hero = () => {
               className="text-4xl font-semibold font-afacad text-jwGreen"
               variants={textVariants}
             >
-              my name is
+              <Emoji text=":wave:" /> my name is
             </motion.h2>
 
             <motion.h1

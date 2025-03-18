@@ -21,7 +21,7 @@ export const events = [
     heading: "JAMHacks 9",
     subHeading: "Web/Tech Executive",
     description:
-      "JAMHacks is a highly regarded hackathon and is among the largest high school hackathons in Canada, being the largest in Waterloo. JAMHacks is recognized and partnered with the faculty of Engineering at The University of Waterloo. As the web/tech executive, I program the website for the ninth iteration of JAMHacks as well as a few applications to store login information and verification. The purpose of the hackathon is to connect high school programmers who have an interest in projects and networking. The previous event had 200+ attendees.",
+      "I program the website as well as a few applications to store login information and verification. JAMHacks is one of the largest high school hackathons in Canada, the previous iteration had 200+ attendees.",
     date: "Aug 2024 - Present",
     direction: "right",
     image: "./jamhacks.jpg",
@@ -30,7 +30,7 @@ export const events = [
     heading: "Starts With One",
     subHeading: "Logistics/Software Associate",
     description:
-      "Starts With One (SWO) is a non-profit organization to provide educational services for underrepresented communities. I am currently spearheading a software project to bridge high school students with university students for educational pathway planning. I am currently developing the website for said application, and organizing tasks within the team.",
+      "Project lead on an application to bridge high school students with university student mentors. Work on fullstack development using JavaScript and React.",
     date: "Aug 2024 - Present",
     direction: "left",
     image: "./starts-with-one.jpg",
@@ -39,7 +39,7 @@ export const events = [
     heading: "Kumon",
     subHeading: "Program Assistant & Tutor",
     description:
-      "JAMHacks is a highly regarded hackathon and is among the largest high school hackathons in Canada, being the largest in Waterloo. JAMHacks is recognized and partnered with the faculty of Engineering at The University of Waterloo. As the web/tech executive, I program the website for the ninth iteration of JAMHacks as well as a few applications to store login information and verification. The purpose of the hackathon is to connect high school programmers who have an interest in projects and networking. The previous event had 200+ attendees.",
+      "Tutoring job to educate K-12 in math and reading. I privately tutor students and assist the manager in tracking student progression.",
     date: "Sep 2023 - Present",
     direction: "right",
     image: "./kumon.png",
@@ -48,7 +48,7 @@ export const events = [
     heading: "UofT Computer Science",
     subHeading: "Research Intern",
     description:
-      "JAMHacks is a highly regarded hackathon and is among the largest high school hackathons in Canada, being the largest in Waterloo. JAMHacks is recognized and partnered with the faculty of Engineering at The University of Waterloo. As the web/tech executive, I program the website for the ninth iteration of JAMHacks as well as a few applications to store login information and verification. The purpose of the hackathon is to connect high school programmers who have an interest in projects and networking. The previous event had 200+ attendees.",
+      "Worked in DGP academy with graduate/PhD students in the computer science department at UofT. Programmed orbital simulator using Python and learned about human-computer interactions.",
     date: "Mar 2024",
     direction: "left",
     image: "./uoft-logo.png",
@@ -57,7 +57,7 @@ export const events = [
     heading: "Durham Youth in Policing",
     subHeading: "Co-op Student",
     description:
-      "JAMHacks is a highly regarded hackathon and is among the largest high school hackathons in Canada, being the largest in Waterloo. JAMHacks is recognized and partnered with the faculty of Engineering at The University of Waterloo. As the web/tech executive, I program the website for the ninth iteration of JAMHacks as well as a few applications to store login information and verification. The purpose of the hackathon is to connect high school programmers who have an interest in projects and networking. The previous event had 200+ attendees.",
+      "Organized Durham’s Special Olympics Basketball Tournament for over 100 attendees to unite the community. Raised hundreds of dollars for the Coldest Night of The Year Fundraiser while helping with many community-oriented initiatives.",
     date: "Aug 2024 - Present",
     direction: "right",
     image: "./dyip.jpg",

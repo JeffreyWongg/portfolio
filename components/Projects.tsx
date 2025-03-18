@@ -1,6 +1,7 @@
+"use client";
+
 import React from "react";
-import Tilt from "react-parallax-tilt";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   SiPython,
   SiReact,
@@ -22,15 +23,10 @@ import {
   SiGit,
 } from "react-icons/si";
 
-const fadeIn = (
-  direction: string,
-  type: string,
-  delay: number,
-  duration: number
-): Variants => {
+const fadeIn = (direction: "left" | "right" | "up" | "down", delay: number) => {
   return {
     hidden: {
-      x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
+      x: direction === "left" ? -100 : direction === "right" ? 100 : 0,
       y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
       opacity: 0,
     },
@@ -39,10 +35,10 @@ const fadeIn = (
       y: 0,
       opacity: 1,
       transition: {
-        type: type,
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
         delay: delay,
-        duration: duration,
-        ease: "easeOut",
       },
     },
   };
@@ -50,35 +46,36 @@ const fadeIn = (
 
 const Projects = () => {
   return (
-    <>
-      <div
-        id="projects"
-        className="flex flex-col items-center justify-center py-20"
-      >
-        <h3 className="font-afacad text-gray-400">MY WORK</h3>
-        <h1 className="font-bebas text-8xl text-jwYellow">My Projects</h1>
-        <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
-          <ProjectCard
-            src="./jeffrey-logo.png"
-            title="DementAId"
-            description="fsdfdsfds"
-            tech={["Python", "HTML", "CSS", "JavaScript"]} 
-          />
-          <ProjectCard
-            src="./jeffrey-logo.png"
-            title="This Portfolio!"
-            description="fsdfdsfds"
-            tech={["TypeScript", "React", "Next.js", "TailwindCSS"]} 
-          />
-          <ProjectCard
-            src="./jeffrey-logo.png"
-            title="PID Controller"
-            description="fsdfdsfds"
-            tech={["C++", "Arduino"]} 
-          />
-        </div>
+    <div
+      id="projects"
+      className="flex flex-col items-center justify-center py-20"
+    >
+      <h3 className="font-afacad text-jwPink">MY WORK</h3>
+      <h1 className="font-bebas text-8xl text-jwYellow">My Projects</h1>
+      <div className="h-full w-full flex flex-wrap justify-center gap-6 px-6 mt-6">
+        <ProjectCard
+          src="./dementaid.png"
+          title="DementAId"
+          description="Web application with AI chatbot to help dementia patients"
+          tech={["Python", "HTML", "CSS", "JavaScript"]}
+          github="https://github.com/solicht88/DementiAId"
+        />
+        <ProjectCard
+          src="./portfolio.png"
+          title="This Portfolio!"
+          description="My personal developer portfolio"
+          tech={["TypeScript", "React", "Next.js", "TailwindCSS"]}
+          github="https://github.com/JeffreyWongg/portfolio"
+        />
+        <ProjectCard
+          src="./pid.png"
+          title="PID Controller"
+          description="A PID controller implementation with 3D parts"
+          tech={["C++", "Arduino"]}
+          github="https://github.com/JeffreyWongg/PID-Controller"
+        />
       </div>
-    </>
+    </div>
   );
 };
 
@@ -86,11 +83,13 @@ interface Props {
   src: string;
   title: string;
   description: string;
-  tech: string[]; // Change tech to an array of strings
+  tech: string[];
+  github: string;
 }
 
-const ProjectCard = ({ src, title, description, tech }: Props) => {
-  // Map the tech string to the correct icon
+const ProjectCard = ({ src, title, description, tech, github }: Props) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const getTechIcon = (tech: string) => {
     switch (tech) {
       case "React":
@@ -135,24 +134,50 @@ const ProjectCard = ({ src, title, description, tech }: Props) => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg border ">
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={fadeIn("up", 0.2)}
+      className="relative overflow-hidden rounded-lg shadow-lg border w-fit flex flex-col items-center p-4"
+    >
+      {/* Image Section */}
       <img
         src={src}
         alt={title}
-        width={1000}
-        height={1000}
-        className="w-36 object-contain"
+        className="w-[400px] sm:w-[300px] h-auto object-contain"
       />
-      <div className="relative p-4">
-        <h1 className="text-2xl font-bebas text-jwGreen">{title}</h1>
-        <p className="mt-2 font-afacad text-gray-300">{description}</p>
-        <div className="mt-2 flex gap-2">
+
+      {/* Content Section */}
+      <div className="w-full flex flex-col items-center text-center p-3">
+        <h1 className="text-xl sm:text-lg font-bebas tracking-wide text-jwPink">
+          {title}
+        </h1>
+        <p className="mt-1 font-afacad text-gray-300 text-sm sm:text-xs">
+          {description}
+        </p>
+      </div>
+
+      {/* Footer Section */}
+      <div className="w-full flex justify-between items-center px-4 pb-2">
+        {/* Tech Icons (Bottom Left) */}
+        <div className="flex gap-2 text-lg sm:text-base">
           {tech.map((technology, index) => (
-            <span key={index}>{getTechIcon(technology)}</span> // Display all icons
+            <span key={index}>{getTechIcon(technology)}</span>
           ))}
         </div>
+
+        {/* GitHub Button (Bottom Right) */}
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-400 hover:text-white"
+        >
+          <SiGithub className="text-3xl" />
+        </a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

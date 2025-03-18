@@ -92,7 +92,9 @@ const About: React.FC = () => {
                 className="flex flex-col items-center text-center"
               >
                 {skill.icon}
-                <span className="text-sm font-afacad text-jwBlue">{skill.name}</span>
+                <span className="text-sm font-afacad text-jwBlue">
+                  {skill.name}
+                </span>
               </motion.div>
             ))}
           </div>
@@ -217,7 +219,6 @@ interface EventCardProps {
   date: string;
   image?: string;
 }
-
 const EventCard: React.FC<EventCardProps> = ({
   heading,
   subHeading,
@@ -226,14 +227,19 @@ const EventCard: React.FC<EventCardProps> = ({
   image,
 }) => {
   return (
-    <div className="relative flex flex-col gap-y-2 border shadow-md rounded-xl p-4 text-white bg-jwBackground">
-      <div className="font-bebas text-xl border-">{heading}</div>
-      <div className="flex items-center flex-col md:flex-row">
+    <div className="relative flex flex-col gap-y-2 border shadow-md rounded-xl p-4 text-white">
+      <div className="font-bebas text-xl tracking-wide text-jwGreen">{heading}</div>
+      <div className="flex items-center flex-col md:flex-row gap-6">
         <div className="flex flex-col">
-          <div className="font-afacad font-bold text-sm">{subHeading}</div>
-          <div className="font-afacad text-sm">{description}</div>
+          <div className="font-afacad font-bold text-sm ">{subHeading}</div>
+          <div className="font-afacad text-sm text-gray-400">{description}</div>
         </div>
-        <img src={image} className="w-32 h-fit bg-white flex justify-center items-center p-1 rounded-full" />
+        {image && (
+          <img
+            src={image}
+            className="w-32 h-32 object-cover rounded-full bg-white p-1 mx-auto"
+          />
+        )}
       </div>
       <div className="font-afacad font-bold text-sm">{date}</div>
     </div>

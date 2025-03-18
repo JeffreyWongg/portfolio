@@ -26,17 +26,26 @@ const Navbar = () => {
     };
   }, []);
 
+  // Function to handle smooth scrolling
+  const handleScrollTo = (id: string, e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default anchor behavior
+
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
       {/* Opaque Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-full transition-all px-8 py-3 z-[1000000] bg-jwBackground 
-        }`}
+        className={`fixed top-0 left-0 w-full transition-all px-8 py-3 z-[1000000] bg-jwBackground `}
       >
         <div className="flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo with smooth scroll to #hero */}
           <div>
-            <a href="/#hero">
+            <a href="#hero" onClick={(e) => handleScrollTo("hero", e)}>
               <img
                 src="./jeffrey-logo.png"
                 alt="JAMHacks Logo"
@@ -47,19 +56,28 @@ const Navbar = () => {
 
           {/* Desktop Navbar Links & Resume Button */}
           <div className="hidden md:flex items-center space-x-6 text-2xl font-semibold font-afacad">
-            <a href="/#about" className="hover:text-white text-jwBlue">
+            <a
+              onClick={(e) => handleScrollTo("about", e)}
+              className="hover:text-white text-jwBlue cursor-pointer"
+            >
               about
             </a>
-            <a href="/#experience" className="hover:text-white text-jwGreen">
+            <a
+              onClick={(e) => handleScrollTo("experience", e)}
+              className="hover:text-white text-jwGreen cursor-pointer"
+            >
               experience
             </a>
-            <a href="/#projects" className="hover:text-white text-jwPink">
+            <a
+              onClick={(e) => handleScrollTo("projects", e)}
+              className="hover:text-white text-jwPink cursor-pointer"
+            >
               projects
             </a>
             {/* Resume Download Button */}
             <a
-              href="/Jeffrey_Resume.pdf" // Path to your resume in public/
-              download="Jeffrey_Resume.pdf"
+              href="/jeffrey-wong-resume.pdf" // Path to the file in the public folder
+              download="jeffrey-wong-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-jwPurple text-jwYellow px-3 py-0.5 rounded-lg hover:bg-white hover:text-jwPurple transition"
@@ -93,23 +111,29 @@ const Navbar = () => {
         }`}
       >
         <a
-          href="/#about"
-          className="hover:text-white py-2 text-jwBlue"
-          onClick={closeMenu}
+          onClick={(e) => {
+            handleScrollTo("about", e);
+            closeMenu();
+          }}
+          className="hover:text-white py-2 text-jwBlue cursor-pointer"
         >
           about
         </a>
         <a
-          href="/#experience"
-          className="hover:text-white py-2 text-jwGreen"
-          onClick={closeMenu}
+          onClick={(e) => {
+            handleScrollTo("experience", e);
+            closeMenu();
+          }}
+          className="hover:text-white py-2 text-jwGreen cursor-pointer"
         >
           experience
         </a>
         <a
-          href="/#projects"
-          className="hover:text-white py-2 text-jwPink"
-          onClick={closeMenu}
+          onClick={(e) => {
+            handleScrollTo("projects", e);
+            closeMenu();
+          }}
+          className="hover:text-white py-2 text-jwPink cursor-pointer"
         >
           projects
         </a>
