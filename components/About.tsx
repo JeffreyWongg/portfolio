@@ -102,10 +102,9 @@ const About: React.FC = () => {
       </ScrollSection>
 
       {/* Timeline Section */}
-      <div
-        id="experience"
-        className="timeline flex flex-col items-center justify-center mt-12"
-      >
+      <div id="experience" className="mb-20">
+      </div>
+      <div className="timeline flex flex-col items-center justify-center mt-12">
         <motion.h3
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
