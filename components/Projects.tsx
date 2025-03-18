@@ -48,7 +48,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="flex flex-col items-center justify-center py-20"
+      className="flex flex-col items-center justify-center py-20 my-36"
     >
       <h3 className="font-afacad text-jwPink">MY WORK</h3>
       <h1 className="font-bebas text-8xl text-jwYellow">My Projects</h1>

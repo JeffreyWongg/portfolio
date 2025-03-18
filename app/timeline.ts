@@ -58,7 +58,7 @@ export const events: EventData[] = [
     subHeading: "Co-op Student",
     description:
       "Organized Durham’s Special Olympics Basketball Tournament for over 100 attendees to unite the community. Raised hundreds of dollars for the Coldest Night of The Year Fundraiser while helping with many community-oriented initiatives.",
-    date: "Aug 2024 - Present",
+    date: "Nov 2022 - Mar 2023",
     direction: "right",
     image: "./dyip.jpg",
   },
