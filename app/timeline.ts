@@ -1,4 +1,4 @@
-export const events = [
+export const events: EventData[] = [
   {
     heading: "SiteWhiz",
     subHeading: "Co-Founder & Tech Lead",
@@ -63,3 +63,12 @@ export const events = [
     image: "./dyip.jpg",
   },
 ];
+
+export interface EventData {
+  heading: string;
+  subHeading: string;
+  description: string;
+  date: string;
+  direction: "left" | "right";
+  image?: string;
+}

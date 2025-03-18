@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { events } from "../app/timeline";
 import {
@@ -164,7 +163,7 @@ const Pillar = () => {
   );
 };
 
-const TimelineEvent: React.FC<{ event: any; index: number }> = ({
+const TimelineEvent: React.FC<{ event: EventCardProps; index: number }> = ({
   event,
   index,
 }) => {
@@ -186,6 +185,7 @@ const TimelineEvent: React.FC<{ event: any; index: number }> = ({
             description={event.description}
             date={event.date}
             image={event.image}
+            direction={event.direction}
           />
         ) : (
           <div></div>
@@ -200,6 +200,7 @@ const TimelineEvent: React.FC<{ event: any; index: number }> = ({
             description={event.description}
             date={event.date}
             image={event.image}
+            direction={event.direction}
           />
         ) : (
           <div></div>
@@ -216,6 +217,7 @@ interface EventCardProps {
   description: string;
   date: string;
   image?: string;
+  direction: "left" | "right";
 }
 const EventCard: React.FC<EventCardProps> = ({
   heading,
