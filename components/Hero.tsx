@@ -2,7 +2,7 @@
 
 import { FiLinkedin, FiGithub, FiMail } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { ComputersCanvas, EarthCanvas } from "./canvas";
+import { EarthCanvas } from "./canvas";
 import Emoji from "react-emoji-render";
 
 const containerVariants = {

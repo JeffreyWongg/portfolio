@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { events } from "../app/timeline"; // Correct import path if necessary
+import { events } from "../app/timeline";
 import {
   SiPython,
   SiReact,
@@ -87,7 +88,7 @@ const About: React.FC = () => {
                 key={index}
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.5 }} // Triggers only when in view
+                viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="flex flex-col items-center text-center"
               >
@@ -134,13 +135,10 @@ const About: React.FC = () => {
   );
 };
 
-const ScrollSection = ({
-  children,
-  delay = 0,
-}: {
+const ScrollSection: React.FC<{
   children: React.ReactNode;
   delay?: number;
-}) => {
+}> = ({ children, delay = 0 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
 
@@ -228,7 +226,9 @@ const EventCard: React.FC<EventCardProps> = ({
 }) => {
   return (
     <div className="relative flex flex-col gap-y-2 border shadow-md rounded-xl p-4 text-white">
-      <div className="font-bebas text-xl tracking-wide text-jwGreen">{heading}</div>
+      <div className="font-bebas text-xl tracking-wide text-jwGreen">
+        {heading}
+      </div>
       <div className="flex items-center flex-col md:flex-row gap-6">
         <div className="flex flex-col">
           <div className="font-afacad font-bold text-sm ">{subHeading}</div>

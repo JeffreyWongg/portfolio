@@ -5,7 +5,6 @@ import { IoCloseCircle } from "react-icons/io5";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,9 +15,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsVisible(true);
-    };
+    const handleScroll = () => {};
     window.addEventListener("scroll", handleScroll);
 
     return () => {
