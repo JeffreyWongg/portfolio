@@ -73,8 +73,8 @@ const Navbar = () => {
             </a>
             {/* Resume Download Button */}
             <a
-              href="/jeffrey-wong-resume.pdf" // Path to the file in the public folder
-              download="jeffrey-wong-resume.pdf"
+              href="/Jeffrey-Wong-Resume.pdf" // Path to the file in the public folder
+              download="Jeffrey-Wong-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-jwPurple text-jwYellow px-3 py-0.5 rounded-lg hover:bg-white hover:text-jwPurple transition"
@@ -137,7 +137,7 @@ const Navbar = () => {
 
         {/* Resume Button for Mobile */}
         <a
-          href="/Jeffrey-Wong-Resume.pdf"
+          href="/Jeffrey-Wong-Resume.pdf" // Path to the file in the public folder
           download="Jeffrey-Wong-Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
