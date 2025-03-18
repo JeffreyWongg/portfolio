@@ -102,8 +102,7 @@ const About: React.FC = () => {
       </ScrollSection>
 
       {/* Timeline Section */}
-      <div id="experience" className="mb-20">
-      </div>
+      <div id="experience" className="mb-20"></div>
       <div className="timeline flex flex-col items-center justify-center mt-12">
         <motion.h3
           initial={{ opacity: 0 }}
@@ -226,7 +225,7 @@ const EventCard: React.FC<EventCardProps> = ({
   image,
 }) => {
   return (
-    <div className="relative flex flex-col gap-y-2 border shadow-md rounded-xl p-4 text-white">
+    <div className="relative flex flex-col gap-y-2 border shadow-md rounded-xl p-4 text-white max-w-[500px]">
       <div className="font-bebas text-xl tracking-wide text-jwGreen">
         {heading}
       </div>

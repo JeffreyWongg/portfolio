@@ -139,17 +139,17 @@ const ProjectCard = ({ src, title, description, tech, github }: Props) => {
       initial="hidden"
       animate={isInView ? "show" : "hidden"}
       variants={fadeIn("up", 0.2)}
-      className="relative overflow-hidden rounded-lg shadow-lg border w-fit flex flex-col items-center p-4"
+      className="relative overflow-hidden rounded-lg shadow-lg border w-fit flex flex-col items-center p-4 bg-black"
     >
-      {/* Image Section */}
+      {/* Image Section (Always at Top) */}
       <img
         src={src}
         alt={title}
-        className="w-[400px] sm:w-[300px] h-auto object-contain"
+        className="w-[400px] sm:w-[300px] h-auto object-contain rounded-lg"
       />
 
-      {/* Content Section */}
-      <div className="w-full flex flex-col items-center text-center p-3">
+      {/* Content Section (Text and Icons at Bottom) */}
+      <div className="flex flex-col items-center text-center p-3">
         <h1 className="text-xl sm:text-lg font-bebas tracking-wide text-jwPink">
           {title}
         </h1>
@@ -158,7 +158,7 @@ const ProjectCard = ({ src, title, description, tech, github }: Props) => {
         </p>
       </div>
 
-      {/* Footer Section */}
+      {/* Footer Section (Icons & GitHub Link) */}
       <div className="w-full flex justify-between items-center px-4 pb-2">
         {/* Tech Icons (Bottom Left) */}
         <div className="flex gap-2 text-lg sm:text-base">
