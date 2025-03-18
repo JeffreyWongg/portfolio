@@ -42,7 +42,7 @@ export const events = [
       "JAMHacks is a highly regarded hackathon and is among the largest high school hackathons in Canada, being the largest in Waterloo. JAMHacks is recognized and partnered with the faculty of Engineering at The University of Waterloo. As the web/tech executive, I program the website for the ninth iteration of JAMHacks as well as a few applications to store login information and verification. The purpose of the hackathon is to connect high school programmers who have an interest in projects and networking. The previous event had 200+ attendees.",
     date: "Sep 2023 - Present",
     direction: "right",
-    image: "./kumon.jpg",
+    image: "./kumon.png",
   },
   {
     heading: "UofT Computer Science",

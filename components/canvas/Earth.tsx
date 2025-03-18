@@ -10,7 +10,7 @@ const Earth = () => {
   // Automatically rotate the Earth
   useFrame(() => {
     if (earthRef.current) {
-      earthRef.current.rotation.y += 0.001; // Adjust speed as needed
+      earthRef.current.rotation.y += 0.02; // Adjust speed as needed
     }
   });
 
