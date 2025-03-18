@@ -140,8 +140,8 @@ const Navbar = () => {
 
         {/* Resume Button for Mobile */}
         <a
-          href="/Jeffrey_Resume.pdf"
-          download="Jeffrey_Resume.pdf"
+          href="/Jeffrey-Wong-Resume.pdf"
+          download="Jeffrey-Wong-Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 bg-jwPurple text-jwYellow text-center px-3 py-0.5 rounded-lg hover:bg-white hover:text-jwPurple transition"
